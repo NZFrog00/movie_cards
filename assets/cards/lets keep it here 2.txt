@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Card</title>
+
+    <style>
+        /* =======================
+           GLOBAL
+        ======================= */
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Poppins", sans-serif;
+
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.18), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(180, 0, 0, 0.15), transparent 45%),
+                radial-gradient(circle at 50% 90%, rgba(120, 0, 0, 0.1), transparent 50%),
+                #000;
+        }
+
+        /* =======================
+           GLASS CONTAINER
+        ======================= */
+        .glass-deck {
+            padding: 18px;
+            border-radius: 26px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        /* =======================
+           CARD
+        ======================= */
+        .card {
+            position: relative;
+            width: 260px;
+            height: 390px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* dark gradient overlay */
+        .card-front::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.85) 0%,
+                    rgba(0, 0, 0, 0.45) 40%,
+                    rgba(0, 0, 0, 0.15) 70%,
+                    transparent 100%);
+            z-index: 1;
+        }
+
+        /* =======================
+           CARD INFO
+        ======================= */
+        .info {
+            position: absolute;
+            bottom: 0;
+            z-index: 2;
+            padding: 16px;
+            width: 100%;
+            color: #fff;
+        }
+
+        .info h3 {
+            margin: 0 0 6px;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .info p {
+            margin: 4px 0;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .info p:last-child {
+            font-size: 0.8rem;
+            opacity: 0.75;
+            cursor: pointer;
+        }
+
+        /* =======================
+           CONTROLS
+        ======================= */
+        .controls {
+            display: flex;
+            gap: 22px;
+        }
+
+        .controls button {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+
+            background: #8E1616;
+            color: white;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .controls button:hover {
+            transform: scale(1.12);
+        }
+
+        .back {
+            color: #4da6ff;
+        }
+
+        .skip {
+            color: #ccc;
+        }
+
+        .like {
+            color: #ff4d6d;
+        }
+
+        /* =======================
+   FLIP SETUP
+======================= */
+        .card {
+            perspective: 1200px;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* faces */
+        .card-face {
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            backface-visibility: hidden;
+        }
+
+        /* FRONT */
+        .card-front {
+            background: #000;
+        }
+
+        /* BACK */
+        .card-back {
+            background: rgba(10, 10, 10, 0.95);
+            color: white;
+            padding: 20px;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card-back h3 {
+            margin: 0;
+        }
+
+        .card-back p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .see-more,
+        .go-back {
+            cursor: pointer;
+            color: #E8C999;
+            font-size: 0.8rem;
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="glass-deck">
+        <div class="card">
+            <div class="card-inner">
+
+                <!-- FRONT -->
+                <div class="card-face card-front">
+                    <img src="https://image.tmdb.org/t/p/w1280/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Interstellar">
+
+                    <div class="info">
+                        <h3>Interstellar</h3>
+                        <p>Sci-Fi • 2014 ⭐ 8.6</p>
+                        <p>Action, Adventure, Science Fiction</p>
+                        <p class="see-more">See more</p>
+                    </div>
+                </div>
+
+                <!-- BACK -->
+                <div class="card-face card-back">
+                    <h3>Interstellar</h3>
+                    <p>
+                        A team of explorers travel through a wormhole in space
+                        in an attempt to ensure humanity’s survival.
+                    </p>
+                    <p><strong>Director:</strong> Christopher Nolan</p>
+                    <p><strong>Runtime:</strong> 169 min</p>
+                    <p class="go-back">← Back</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="controls">
+            <button class="back">⟲</button>
+            <button class="skip">✕</button>
+            <button class="like">❤</button>
+        </div>
+    </div>
+    <script>
+        const card = document.querySelector(".card");
+        const seeMore = document.querySelector(".see-more");
+        const goBack = document.querySelector(".go-back");
+
+        seeMore.addEventListener("click", () => {
+            card.classList.add("flipped");
+        });
+
+        goBack.addEventListener("click", () => {
+            card.classList.remove("flipped");
+        });
+    </script>
+
+
+</body>
+
+</html>
