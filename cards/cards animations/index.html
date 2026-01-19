@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Card</title>
+
+    <style>
+        /* Basic body setup with background */
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Poppins", sans-serif;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.18), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(180, 0, 0, 0.15), transparent 45%),
+                radial-gradient(circle at 50% 90%, rgba(120, 0, 0, 0.1), transparent 50%),
+                #000;
+        }
+
+        /* Card container with 3D perspective for flip effect */
+        .card {
+            perspective: 1200px;
+            width: 300px;
+            height: 500px;
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            inset: 0;
+            border-radius: 26px;
+            backface-visibility: hidden;
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .front {
+            padding: 18px;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        .back {
+            transform: rotateY(180deg);
+            background: rgba(10, 10, 10, 0.95);
+            color: white;
+            padding: 20px;
+            gap: 12px;
+        }
+
+        /* Inner image container */
+        .card-inner {
+            width: 260px;
+            height: 390px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .card-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Gradient overlay for image */
+        .card-inner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.85) 0%,
+                    rgba(0, 0, 0, 0.45) 40%,
+                    rgba(0, 0, 0, 0.15) 70%,
+                    transparent 100%);
+        }
+
+        /* Movie info text overlay */
+        .info {
+            position: absolute;
+            bottom: 0;
+            padding: 16px;
+            color: #fff;
+            width: 100%;
+        }
+
+        .info h3 {
+            margin: 0 0 6px;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .info p {
+            margin: 4px 0;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Button styles */
+        .see-more,
+        .go-back {
+            font-size: 0.8rem;
+            opacity: 0.75;
+            color: #FFF0C4;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Bottom control buttons */
+        .controls {
+            display: flex;
+            gap: 22px;
+        }
+
+        .controls button {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            background: #8E1616;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+            color: #F8EEDF;
+        }
+
+        .controls button:hover {
+            transform: scale(1.12);
+        }
+
+        /* Flip card when toggled */
+        .card.flipped .front {
+            transform: rotateY(180deg);
+        }
+
+        .card.flipped .back {
+            transform: rotateY(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <!-- Front of the card -->
+        <div class="front">
+            <div class="card-inner">
+                <img src="https://image.tmdb.org/t/p/w1280/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Interstellar">
+                <div class="info">
+                    <h3>Interstellar</h3>
+                    <p>Sci-Fi • 2014 ⭐ 8.6</p>
+                    <p>Action, Adventure, Science Fiction</p>
+                    <button class="see-more">See more</button>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="previous">⟲</button>
+                <button class="skip">✕</button>
+                <button class="like">❤</button>
+            </div>
+        </div>
+
+        <!-- Back of the card -->
+        <div class="back">
+            <div class="card-inner-back">
+                <h3>Interstellar</h3>
+                <p>
+                    A team of explorers travel through a wormhole in space
+                    in an attempt to ensure humanity’s survival.
+                </p>
+                <p><strong>Director:</strong> Christopher Nolan</p>
+                <p><strong>Runtime:</strong> 169 min</p>
+                <button class="go-back">Go back</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Flip card on "See more" and return on "Go back"
+        const card = document.querySelector('.card');
+        const seeMoreBtns = document.querySelectorAll('.see-more');
+        const goBackBtn = document.querySelector('.go-back');
+
+        seeMoreBtns.forEach(btn => btn.addEventListener('click', () => card.classList.add('flipped')));
+        goBackBtn.addEventListener('click', () => card.classList.remove('flipped'));
+    </script>
+</body>
+
+</html>
