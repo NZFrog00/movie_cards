@@ -20,9 +20,9 @@
             <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape pentagon"></div>
-    <div class="shape square"></div>
-    <div class="shape diamond"></div>
-    <div class="shape circle big"></div>
+            <div class="shape square"></div>
+            <div class="shape diamond"></div>
+            <div class="shape circle big"></div>
         </div>
 
         <!-- Neural Network Lines -->
@@ -68,99 +68,6 @@
         </nav>
 
     </header>
-    <!-- categories page -->
-    <!--<div class="page active" id="categoriesPage">
-        <div class="container">
-            <h1>Select Category</h1>
-            <div class="categories">
-                <button class="category-btn" onclick="startSwiping('action')">Action</button>
-                <button class="category-btn" onclick="startSwiping('comedy')">Comedy</button>
-                <button class="category-btn" onclick="startSwiping('drama')">Drama</button>
-                <button class="category-btn" onclick="startSwiping('horror')">Horror</button>
-            </div>
-        </div>
-    </div>-->
-
-    <!-- main page -->
-    <!--<div class="page" id="mainPage">
-        <div class="container">
-            <button class="btn back-btn" onclick="backToCategories()">← Back</button>
-            <h1 id="categoryTitle">Movies</h1>
-            <div class="card-container" id="cardContainer"></div>
-            <div class="controls">
-                <button class="btn" onclick="likeCard()">❤ Like</button>
-                <button class="btn" onclick="skipCard()">✕ Skip</button>
-            </div>
-        </div>
-    </div>-->
-
-    <!--<script>
-        const movies = {
-            action: [
-                { title: 'Mad Max', info: 'Post-apocalyptic action' },
-                { title: 'John Wick', info: 'Assassin thriller' },
-                { title: 'Mission Impossible', info: 'Spy action' },
-            ],
-            comedy: [
-                { title: 'Superbad', info: 'Coming-of-age comedy' },
-                { title: 'The Hangover', info: 'Vegas party comedy' },
-                { title: 'Deadpool', info: 'Action comedy' },
-            ],
-            drama: [
-                { title: 'The Shawshank', info: 'Prison drama' },
-                { title: 'Forrest Gump', info: 'Life drama' },
-                { title: 'Inception', info: 'Mind-bending drama' },
-            ],
-            horror: [
-                { title: 'The Ring', info: 'Supernatural horror' },
-                { title: 'Insidious', info: 'Haunted house' },
-                { title: 'Get Out', info: 'Psychological horror' },
-            ]
-        };
-
-        let currentCategory = '';
-        let currentIndex = 0;
-
-        function startSwiping(category) {
-            currentCategory = category;
-            currentIndex = 0;
-            document.getElementById('categoriesPage').classList.remove('active');
-            document.getElementById('mainPage').classList.add('active');
-            document.getElementById('categoryTitle').textContent = category.charAt(0).toUpperCase() + category.slice(1);
-            renderCard();
-        }
-
-        function renderCard() {
-            const container = document.getElementById('cardContainer');
-            container.innerHTML = '';
-
-            if (currentIndex >= movies[currentCategory].length) {
-                container.innerHTML = '<div class="card" style="justify-content: center; text-align: center;"><h2>No more movies</h2></div>';
-                return;
-            }
-
-            const movie = movies[currentCategory][currentIndex];
-            const card = document.createElement('div');
-            card.className = 'card active';
-            card.innerHTML = `<div class="card-title">${movie.title}</div><div class="card-info">${movie.info}</div>`;
-            container.appendChild(card);
-        }
-
-        function likeCard() {
-            currentIndex++;
-            renderCard();
-        }
-
-        function skipCard() {
-            currentIndex++;
-            renderCard();
-        }
-
-        function backToCategories() {
-            document.getElementById('mainPage').classList.remove('active');
-            document.getElementById('categoriesPage').classList.add('active');
-        }
-    </script>-->
 </body>
 <script src="js/geometric_lines.js"></script>
 
