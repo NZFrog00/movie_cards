@@ -380,4 +380,196 @@ body {
   background: #E8C999;
   color: #fff;
   cursor: pointer;
+}
+
+.admin-container {
+  margin-top: 140px;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.movie-form {
+  max-width: 900px;
+  width: 100%;
+  padding: 40px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(232, 201, 153, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+.movie-form h2 {
+  margin-bottom: 30px;
+  color: #E8C999;
+}
+
+/* FORM GRID */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+/* FORM GROUP */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-group.full {
+  grid-column: span 2;
+}
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: rgba(248, 238, 223, 0.85);
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(232, 201, 153, 0.2);
+  background: rgba(255, 163, 163, 0.08);
+  color: white;
+  outline: none;
+}
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* CATEGORY PILLS */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.category-pill {
+  cursor: pointer;
+}
+.category-pill input {
+  display: none;
+}
+.category-pill span {
+  display: block;
+  padding: 10px 14px;
+  text-align: center;
+  border-radius: 999px;
+  background: rgba(255, 163, 163, 0.08);
+  color: #E8C999;
+  border: 1px solid rgba(232, 201, 153, 0.3);
+  font-size: 13px;
+  transition: 0.25s ease;
+}
+.category-pill span:hover {
+  transform: scale(1.05);
+}
+.category-pill input:checked + span {
+  background: #8E1616;
+  border-color: #8E1616;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* CAST */
+.cast-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cast-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.remove-cast {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 201, 153, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.remove-cast:hover {
+  background: #8E1616;
+  border-color: #8E1616;
+}
+
+.add-cast-btn {
+  margin-top: 12px;
+  align-self: flex-start;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 201, 153, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: #E8C999;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+/* FILE INPUT */
+input[type=file] {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(232, 201, 153, 0.2);
+  background: rgba(255, 163, 163, 0.08);
+  color: white;
+  outline: none;
+}
+input[type=file]::file-selector-button {
+  background: #8E1616;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  margin-right: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+input[type=file]::file-selector-button:hover {
+  transform: scale(1.05);
+}
+input[type=file]::-webkit-file-upload-button {
+  background: #8E1616;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  margin-right: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+input[type=file]::-webkit-file-upload-button:hover {
+  transform: scale(1.05);
+}
+
+/* SUBMIT */
+.submit-btn {
+  margin-top: 30px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 201, 153, 0.3);
+  background: #8E1616;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+.submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(142, 22, 22, 0.6);
 }/*# sourceMappingURL=style.css.map */
