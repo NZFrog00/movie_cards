@@ -16,10 +16,10 @@ body {
     height: 100%;
     z-index: -2;
     background:
-    radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.18), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(180, 0, 0, 0.15), transparent 45%),
-    radial-gradient(circle at 50% 90%, rgba(120, 0, 0, 0.1), transparent 50%),
-    #000000;
+        radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.18), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(180, 0, 0, 0.15), transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(120, 0, 0, 0.1), transparent 50%),
+        #000000;
 
 
     animation: backgroundPulse 14s ease-in-out infinite;
@@ -94,28 +94,26 @@ body {
         opacity: 0;
     }
 }
+
 .pentagon {
     width: 90px;
     height: 90px;
     left: 15%;
     animation-delay: -8s;
 
-    clip-path: polygon(
-        50% 0%,
-        100% 38%,
-        82% 100%,
-        18% 100%,
-        0% 38%
-    );
+    clip-path: polygon(50% 0%,
+            100% 38%,
+            82% 100%,
+            18% 100%,
+            0% 38%);
 
-    background: linear-gradient(
-        135deg,
-        rgba(255, 0, 80, 0.15),
-        rgba(255, 0, 0, 0.05)
-    );
+    background: linear-gradient(135deg,
+            rgba(255, 0, 80, 0.15),
+            rgba(255, 0, 0, 0.05));
 
     border: 1px solid rgba(255, 0, 80, 0.35);
 }
+
 .square {
     width: 70px;
     height: 70px;
@@ -125,6 +123,7 @@ body {
     background: rgba(255, 0, 0, 0.08);
     border: 1px solid rgba(255, 80, 80, 0.35);
 }
+
 .diamond {
     width: 65px;
     height: 65px;
@@ -134,6 +133,7 @@ body {
     transform: rotate(45deg);
     border: 1px solid rgba(180, 0, 255, 0.35);
 }
+
 .circle.big {
     width: 140px;
     height: 140px;
@@ -142,7 +142,7 @@ body {
 
     border-radius: 50%;
     background: linear-gradient(45deg, rgba(255, 105, 180, 0.1), transparent);
-        
+
     ;
 
     border: 1px solid rgba(255, 0, 0, 0.25);

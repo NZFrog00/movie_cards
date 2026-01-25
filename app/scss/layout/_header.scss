@@ -134,4 +134,8 @@
     background: variables.$main_light_color;
     color: #fff;
     cursor: pointer;
+
+    i {
+        color: variables.$main_red;
+    }
 }

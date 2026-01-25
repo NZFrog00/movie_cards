@@ -381,6 +381,9 @@ body {
   color: #fff;
   cursor: pointer;
 }
+.search-btn i {
+  color: #8E1616;
+}
 
 .admin-container {
   margin-top: 140px;
